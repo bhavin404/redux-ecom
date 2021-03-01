@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: sans-serif;
+}
+.container1{
+    width:80%;
+    display: flex;
+    justify-content: center;
+}
+table {
+    padding:10px;
+    cursor: pointer;
+
+}
+table th {
+    border: 1px solid black;
+    border-radius: 80%;
+    padding:10px;
+    cursor: pointer;
+}
+
+table th:hover {
+    background-color: rgb(123, 151, 123);
+}
