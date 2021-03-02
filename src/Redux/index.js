@@ -1,2 +1,2 @@
-export * from '../Redux/ProductsAction/ProductsAction'
-export * from '../Redux/ProDetails/ProDetailsAction';
+export * from './Products/ProductsAction/ProductsAction'
+export * from './Filters/FiltersAction'

@@ -4,7 +4,6 @@ import SingleProduct from '../SingleProduct/SingleProduct'
 import './ProductDetails.css'
 
 import {connect} from 'react-redux'
-import { FetchingDetails } from '../../Redux'
 
 
 const ProductDetails = ({FetchingDetails,categoryData}) => {
@@ -68,15 +67,15 @@ const ProductDetails = ({FetchingDetails,categoryData}) => {
     )
 }
 
-const mapStateToProps = state =>{
-    return{
-        categoryData : state.category
-    }
-}
+// const mapStateToProps = state =>{
+//     return{
+//         categoryData : state.category
+//     }
+// }
 
-const mapDispatchToProps = dispatch =>{
-    return {
-        FetchingDetails : () => dispatchEvent(FetchingDetails())
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ProductDetails)
+// const mapDispatchToProps = dispatch =>{
+//     return {
+//         FetchingDetails : () => dispatchEvent(FetchingDetails())
+//     }
+// }
+export default ProductDetails

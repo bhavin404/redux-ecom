@@ -4,7 +4,7 @@ const FilteredProducts = ({filterList}) => {
     return (
         <div className='container'>
 
-        {filterList.map((product, index) =>
+        {filterList.filteredProducts.map((product, index) =>
             <div key={product.id} className="cards">
                 <div className="img">
                     <img alt="" srcSet={product.image}/>

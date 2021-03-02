@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux'
-import { ProDetailsReducer } from './ProDetails/ProDetailsReducer'
-import { ProductsReducer } from './ProductsReducer/ProductsReducer'
+import { ProductsReducer } from '../Redux/Products/ProductsReducer/ProductsReducer';
+import { Filters_Reducer } from './Filters/FiltersReducer';
+
 
 
 export const rootReducer = combineReducers({
     product: ProductsReducer,
-    category: ProDetailsReducer
+    filter : Filters_Reducer
 })

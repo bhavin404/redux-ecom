@@ -4,19 +4,25 @@ import FilteredProducts from '../FilteredProducts/FilteredProducts';
 import Products from '../Products/Products';
 import './Main.css';
 
-const Main = () => {
+import {connect} from 'react-redux'
+import {filteringProducts} from '../../Redux'
 
-    const [filterList, setFilterList] = useState([])
+
+const Main = ({filteringProducts,filterData}) => {
+
+    // const [filterList, setFilterList] = useState([])
 
     const onSearch = (e) => {
         const value = e.target.value;
-        fetch(`https://fakestoreapi.com/products/category/${value}`)
-             .then(res=>res.json())
-             .then(json=>setFilterList(json))
+
+        filteringProducts(value)
+
+        // fetch(`https://fakestoreapi.com/products/category/${value}`)
+        //      .then(res=>res.json())
+        //      .then(json=>setFilterList(json))
         }
 
-
-    console.log(filterList);
+        console.log(filterData);
 
     return (
         <>
@@ -26,7 +32,7 @@ const Main = () => {
             </div>
             <div className="searchBar">
                     <select onChange={onSearch} className="dropDown">
-                    <option  className="dropValue" value =" "> None </option>
+                    <option  className="dropValue" value = "null"> None </option>
                     <option  className="dropValue" value ="men clothing"> Men clothing  </option>
                     <option  className="dropValue" value ="jewelery">Jewelery </option>
                     <option  className="dropValue" value ="electronics">electrtonics </option>
@@ -42,16 +48,28 @@ const Main = () => {
                 
             </div>
         </div>
-        <Products/>
         
-        {filterList  ?  <FilteredProducts filterList={filterList} /> : '' }        
+        {filterData  ?  <FilteredProducts filterList={filterData} /> :  ''} 
+        <Products/>       
         {/* <ProductDetails/> */}
         {/* <SingleProducts/> */}
         </>
     )
 }
 
-export default Main
+const mapStateToProps = state =>{
+    return {
+        filterData: state.filter
+    }
+}
+
+const mapDispatchToProps = dispatch =>{
+    return {
+        filteringProducts: (e) => dispatch(filteringProducts(e))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(Main)
 
 
 
